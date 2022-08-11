@@ -1,10 +1,8 @@
 import React from 'react'
 import style from './content.module.scss'
 
-interface IProps {
-  children: React.ReactNode
-}
+interface IProps {}
 
-export const Content: React.FC<IProps> = ({ children }) => {
-  return <div className={style.content}>{children}</div>
+export const Content: React.FC<IProps> = () => {
+  return <div className={style.content}></div>
 }

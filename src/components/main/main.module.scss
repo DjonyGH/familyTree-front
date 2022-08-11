@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 30px);
+  flex-grow: 1;
+  border-radius: 10px;
+  & > :first-child {
+    margin-bottom: 20px;
+  }
+}

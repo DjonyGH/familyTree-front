@@ -1,0 +1,12 @@
+.user {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+}
+.visible {
+  display: flex;
+}
