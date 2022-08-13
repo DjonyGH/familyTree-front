@@ -4,6 +4,8 @@ import { generalActionCreator } from '../general/action-creators'
 import { IUser } from '../../../types'
 import http, { BASE_URL } from '../../../utils/http'
 import axios, { AxiosResponse } from 'axios'
+import { userActionCreator } from '../user/action-creators'
+import { AnyAction } from 'redux'
 // import { userActionCreator } from '../user/action-creators'
 
 export const authActionCreator = {
@@ -23,10 +25,12 @@ export const authActionCreator = {
       localStorage.setItem('access-token', accessToken)
       localStorage.setItem('refresh-token', refreshToken)
       dispatch(authActionCreator.setIsAuth(true))
-      // dispatch(userActionCreator.setUser(user))
+      dispatch(userActionCreator.setUser(user))
+      return true
     } catch (error: any) {
       dispatch(authActionCreator.setIsAuth(false))
       dispatch(generalActionCreator.setError(String(error.response.data.message)))
+      return false
     } finally {
       dispatch(generalActionCreator.setIsLoading(false))
     }
@@ -40,10 +44,9 @@ export const authActionCreator = {
       localStorage.removeItem('access-token')
       localStorage.removeItem('refresh-token')
       dispatch(authActionCreator.setIsAuth(false))
-      // dispatch(userActionCreator.setUser({} as IUser))
+      dispatch(userActionCreator.setUser({} as IUser))
     } catch (error: any) {
       dispatch(generalActionCreator.setError(String(error.response.data.message)))
-      // dispatch(generalActionCreator.setError(String(error.response.data.message)))
     } finally {
       dispatch(generalActionCreator.setIsLoading(false))
     }
@@ -59,10 +62,9 @@ export const authActionCreator = {
       const { user, accessToken } = responce.data
       localStorage.setItem('access-token', accessToken)
       dispatch(authActionCreator.setIsAuth(true))
-      // dispatch(userActionCreator.setUser(user))
+      dispatch(userActionCreator.setUser(user))
     } catch (error: any) {
       dispatch(authActionCreator.setIsAuth(false))
-      // dispatch(generalActionCreator.setError(String(error.response.data.message)))
     } finally {
       dispatch(generalActionCreator.setIsLoading(false))
     }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 import style from './user.module.scss'
 
 interface IProps {
@@ -6,5 +7,6 @@ interface IProps {
 }
 
 export const User: React.FC<IProps> = ({ visible }) => {
-  return <div className={`${style.user} ${visible ? style.visible : ''}`}>Иванов И.И.</div>
+  const { user } = useTypedSelector((state) => state.userReducer)
+  return <div className={`${style.user} ${visible ? style.visible : ''}`}>{user.name || user.login}</div>
 }

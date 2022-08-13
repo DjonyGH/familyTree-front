@@ -1,14 +1,16 @@
 import React, { useCallback, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
+import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { authActionCreator } from '../../store/reducers/auth/action-creators'
 import { generalActionCreator } from '../../store/reducers/general/action-creators'
 import style from './auth.module.scss'
 
 interface IProps {}
 
 export const Auth: React.FC<IProps> = () => {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const { isAuthVisible } = useTypedSelector((state) => state.generalReducer)
   const [phone, setPhone] = useState<string>('+7')
 
@@ -25,10 +27,14 @@ export const Auth: React.FC<IProps> = () => {
     }
   }, [])
 
-  const handleSubmit = useCallback((e: any) => {
-    console.log('handleSubmit', e.target[0].value, e.target[1].value)
+  const handleSubmit = useCallback(async (e: any) => {
+    const login: string = e.target[0].value.substring(e.target[0].value.length - 10)
+    const password: string = e.target[1].value
+    console.log('handleSubmit', login, password)
+
     e.preventDefault()
-    dispatch(generalActionCreator.setIsAuthVisible(false))
+    const success = await dispatch(authActionCreator.login(login, password))
+    success && dispatch(generalActionCreator.setIsAuthVisible(false))
   }, []) //eslint-disable-line
 
   return (
