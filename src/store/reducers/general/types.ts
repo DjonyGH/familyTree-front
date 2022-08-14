@@ -28,9 +28,9 @@ export interface ISetIsAuthVisibleAction {
 export type TGeneralAction = ISetIsLoadingAction | ISetNotificationAction | ISetIsAuthVisibleAction
 
 export enum ENotificationType {
-  ERROR = 'ERROR',
-  SUCCESS = 'SUCCESS',
-  PRIMARY = 'PRIMARY'
+  ERROR = 'danger',
+  SUCCESS = 'success',
+  PRIMARY = 'light'
 }
 
 export interface INotificationPayload {

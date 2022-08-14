@@ -26,6 +26,7 @@ export const authActionCreator = {
       localStorage.setItem('refresh-token', refreshToken)
       dispatch(authActionCreator.setIsAuth(true))
       dispatch(userActionCreator.setUser(user))
+      dispatch(generalActionCreator.setSuccess('Добро пожаловать!'))
       return true
     } catch (error: any) {
       dispatch(authActionCreator.setIsAuth(false))

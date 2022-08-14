@@ -24,5 +24,8 @@ export const generalActionCreator = {
   },
   setSuccess: (message: string) => {
     return generalActionCreator.setNotification({ type: ENotificationType.SUCCESS, message, visible: true })
+  },
+  hideNotification: () => {
+    return generalActionCreator.setNotification({ type: ENotificationType.PRIMARY, message: '', visible: false })
   }
 }

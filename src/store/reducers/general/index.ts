@@ -15,9 +15,6 @@ export default function generalReducer(state = initialState, action: TGeneralAct
     case EGeneralAction.SET_IS_LOADING:
       return { ...state, isLoading: action.payload }
     case EGeneralAction.SET_NOTIFICATION:
-      setTimeout(() => {
-        return { ...state, notification: initialState.notification }
-      }, 3000)
       return { ...state, notification: action.payload, isLoading: false }
     case EGeneralAction.SET_IS_AUTH_VISIBLE:
       return { ...state, isAuthVisible: action.payload, isLoading: false }
