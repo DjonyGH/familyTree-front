@@ -11,6 +11,8 @@ import { useTypedSelector } from './hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { authActionCreator } from './store/reducers/auth/action-creators'
 import { useTypedDispatch } from './hooks/useTypedDispatch'
+import { CreateTreeBtn } from './components/createTreeBtn/CreateTreeBtn'
+import { CreateTreePopup } from './components/createTreePopup/CreateTreePopup'
 
 function App() {
   const { isAuth } = useTypedSelector((state) => state.authReducer)
@@ -27,9 +29,12 @@ function App() {
       <Sidebar />
       <Main>
         <Header />
-        <Content />
+        <Content>
+          <></>
+        </Content>
       </Main>
       <Auth />
+      <CreateTreePopup />
       <Notification />
     </div>
   )

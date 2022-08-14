@@ -7,7 +7,8 @@ const initialState: IGeneralState = {
     message: '',
     visible: false
   },
-  isAuthVisible: false
+  isAuthPopupVisible: false,
+  isCreateTreePopupVisible: false
 }
 
 export default function generalReducer(state = initialState, action: TGeneralAction): IGeneralState {
@@ -17,7 +18,9 @@ export default function generalReducer(state = initialState, action: TGeneralAct
     case EGeneralAction.SET_NOTIFICATION:
       return { ...state, notification: action.payload, isLoading: false }
     case EGeneralAction.SET_IS_AUTH_VISIBLE:
-      return { ...state, isAuthVisible: action.payload, isLoading: false }
+      return { ...state, isAuthPopupVisible: action.payload, isLoading: false }
+    case EGeneralAction.SET_IS_CREATE_TREE_VISIBLE:
+      return { ...state, isCreateTreePopupVisible: action.payload, isLoading: false }
     default:
       return state
   }

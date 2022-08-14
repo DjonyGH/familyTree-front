@@ -1,0 +1,15 @@
+.createTreeBtn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  &:active {
+    background-color: aliceblue;
+  }
+}
+.visible {
+  display: flex;
+}

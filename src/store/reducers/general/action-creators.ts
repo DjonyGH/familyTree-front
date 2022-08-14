@@ -5,7 +5,8 @@ import {
   ISetIsLoadingAction,
   INotificationPayload,
   ISetIsAuthVisibleAction,
-  ENotificationType
+  ENotificationType,
+  ISetIsCreateTreeVisibleAction
 } from './types'
 
 export const generalActionCreator = {
@@ -18,6 +19,9 @@ export const generalActionCreator = {
   },
   setIsAuthVisible: (isAuthVisible: boolean): ISetIsAuthVisibleAction => {
     return { type: EGeneralAction.SET_IS_AUTH_VISIBLE, payload: isAuthVisible }
+  },
+  setIsCreateTreeVisible: (isCreateTreeVisible: boolean): ISetIsCreateTreeVisibleAction => {
+    return { type: EGeneralAction.SET_IS_CREATE_TREE_VISIBLE, payload: isCreateTreeVisible }
   },
   setError: (error: string) => {
     return generalActionCreator.setNotification({ type: ENotificationType.ERROR, message: error, visible: true })

@@ -1,13 +1,15 @@
 export interface IGeneralState {
   isLoading: boolean
   notification: INotificationPayload
-  isAuthVisible: boolean
+  isAuthPopupVisible: boolean
+  isCreateTreePopupVisible: boolean
 }
 
 export enum EGeneralAction {
   SET_IS_LOADING = 'SET_IS_LOADING',
   SET_NOTIFICATION = 'SET_NOTIFICATION',
-  SET_IS_AUTH_VISIBLE = 'SET_IS_AUTH_VISIBLE'
+  SET_IS_AUTH_VISIBLE = 'SET_IS_AUTH_VISIBLE',
+  SET_IS_CREATE_TREE_VISIBLE = 'SET_IS_CREATE_TREE_VISIBLE'
 }
 
 export interface ISetIsLoadingAction {
@@ -25,7 +27,16 @@ export interface ISetIsAuthVisibleAction {
   payload: boolean
 }
 
-export type TGeneralAction = ISetIsLoadingAction | ISetNotificationAction | ISetIsAuthVisibleAction
+export interface ISetIsCreateTreeVisibleAction {
+  type: EGeneralAction.SET_IS_CREATE_TREE_VISIBLE
+  payload: boolean
+}
+
+export type TGeneralAction =
+  | ISetIsLoadingAction
+  | ISetNotificationAction
+  | ISetIsAuthVisibleAction
+  | ISetIsCreateTreeVisibleAction
 
 export enum ENotificationType {
   ERROR = 'danger',
