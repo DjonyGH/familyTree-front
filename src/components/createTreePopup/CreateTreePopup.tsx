@@ -1,9 +1,8 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { generalActionCreator } from '../../store/reducers/general/action-creators'
-import style from './createTreePopup.module.scss'
 
 interface IProps {}
 
@@ -17,9 +16,7 @@ export const CreateTreePopup: React.FC<IProps> = () => {
     dispatch(generalActionCreator.setIsCreateTreeVisible(false))
   }, []) //eslint-disable-line
 
-  const handleClose = useCallback(() => dispatch(generalActionCreator.setIsCreateTreeVisible(false)), [])
-
-  console.log('isCreateTreePopupVisible', isCreateTreePopupVisible)
+  const handleClose = useCallback(() => dispatch(generalActionCreator.setIsCreateTreeVisible(false)), []) //eslint-disable-line
 
   return (
     <Modal show={isCreateTreePopupVisible} centered={true} onHide={handleClose}>

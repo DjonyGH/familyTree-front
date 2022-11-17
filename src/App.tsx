@@ -7,30 +7,35 @@ import { Header } from './components/header/Header'
 import { Content } from './components/content/Content'
 import { Auth } from './components/auth/Auth'
 import { Notification } from './components/notification/Notification'
-import { useTypedSelector } from './hooks/useTypedSelector'
-import { useDispatch } from 'react-redux'
 import { authActionCreator } from './store/reducers/auth/action-creators'
 import { useTypedDispatch } from './hooks/useTypedDispatch'
-import { CreateTreeBtn } from './components/createTreeBtn/CreateTreeBtn'
 import { CreateTreePopup } from './components/createTreePopup/CreateTreePopup'
+import { Routes, Navigate, Route } from 'react-router-dom'
+import { ERoutes, privateRoutes, publicRoutes } from './router'
+import { PrivateRoute } from './router/PrivateRoute'
 
 function App() {
-  const { isAuth } = useTypedSelector((state) => state.authReducer)
-
   const dispatch = useTypedDispatch()
 
   useEffect(() => {
     dispatch(authActionCreator.checkAuth())
   }, []) //eslint-disable-line
 
-  console.log('isAuth', isAuth)
   return (
     <div className="App">
       <Sidebar />
       <Main>
         <Header />
         <Content>
-          <></>
+          <Routes>
+            {publicRoutes.map((route) => (
+              <Route path={route.path} element={<route.component />} key={route.path} />
+            ))}
+            {privateRoutes.map((route) => (
+              <Route path={route.path} element={<PrivateRoute route={route} />} key={route.path} />
+            ))}
+            <Route path="*" element={<Navigate to={ERoutes.NOT_FOUND} />} />
+          </Routes>
         </Content>
       </Main>
       <Auth />

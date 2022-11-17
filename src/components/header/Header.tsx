@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { CreateTreeBtn } from '../createTreeBtn/CreateTreeBtn'
 import { SignIn } from '../signIn/SignIn'
