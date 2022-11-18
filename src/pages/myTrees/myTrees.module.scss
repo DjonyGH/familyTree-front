@@ -1,5 +1,7 @@
 .myTrees {
   display: flex;
-  height: 100%;
   width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

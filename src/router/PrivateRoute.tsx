@@ -13,12 +13,13 @@ export const PrivateRoute: React.FC<IProps> = ({ route }) => {
   const dispatch = useDispatch()
   const { isAuth } = useTypedSelector((state) => state.authReducer)
   useEffect(() => {
-    !isAuth && dispatch(generalActionCreator.setIsAuthVisible(true))
+    isAuth && dispatch(generalActionCreator.setIsAuthVisible(true))
   }, [isAuth]) //eslint-disable-line
+
   return (
     <Routes>
-      {isAuth ? (
-        <Route path={route.path} element={<route.component />} key={route.path} />
+      {!isAuth ? (
+        <Route path="*" element={<route.component />} />
       ) : (
         <Route path="*" element={<Navigate to={ERoutes.FIRST_PAGE} />} />
       )}

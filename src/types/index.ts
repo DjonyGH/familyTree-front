@@ -12,3 +12,12 @@ export enum EMode {
   view = 'view',
   edit = 'edit'
 }
+
+export interface ITree {
+  id: string
+  name: string
+  createdAt: string
+  createdBy: string
+  updatedAt?: string
+  updatedBy?: string
+}

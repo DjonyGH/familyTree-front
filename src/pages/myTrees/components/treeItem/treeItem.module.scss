@@ -1,0 +1,11 @@
+.treeItem {
+  display: flex;
+  height: 250px;
+  width: 250px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  margin: 0 20px 20px 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

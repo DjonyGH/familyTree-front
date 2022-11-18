@@ -13,6 +13,7 @@ import { CreateTreePopup } from './components/createTreePopup/CreateTreePopup'
 import { Routes, Navigate, Route } from 'react-router-dom'
 import { ERoutes, privateRoutes, publicRoutes } from './router'
 import { PrivateRoute } from './router/PrivateRoute'
+import { MyTrees } from './pages/myTrees/MyTrees'
 
 function App() {
   const dispatch = useTypedDispatch()
