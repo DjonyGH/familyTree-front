@@ -1,7 +1,7 @@
-import { ITree, IUser } from '../../../types'
+import { ITreeItem, IUser } from '../../../types'
 
 export interface ITreeListState {
-  treeList: ITree[]
+  treeList: ITreeItem[]
 }
 
 export enum ETreeListAction {
@@ -10,7 +10,7 @@ export enum ETreeListAction {
 
 export interface ISetTreeListAction {
   type: ETreeListAction.SET_TREE_LIST
-  payload: ITree[]
+  payload: ITreeItem[]
 }
 
 export type TTreeListAction = ISetTreeListAction

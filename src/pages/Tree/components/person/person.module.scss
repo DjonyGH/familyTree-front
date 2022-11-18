@@ -1,0 +1,11 @@
+.person {
+  display: flex;
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  top: calc(50% - 200px);
+  left: calc(50% - 250px);
+  background-color: aliceblue;
+  border-radius: 10px;
+  z-index: 10;
+}

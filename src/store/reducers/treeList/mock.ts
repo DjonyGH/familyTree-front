@@ -1,6 +1,6 @@
-import { ITree } from '../../../types'
+import { ITreeItem } from '../../../types'
 
-export const trees: ITree[] = [
+export const trees: ITreeItem[] = [
   {
     id: 'qwqwq',
     name: 'Дерево 1',
