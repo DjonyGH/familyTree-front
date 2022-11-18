@@ -6,7 +6,8 @@ import {
   INotificationPayload,
   ISetIsAuthVisibleAction,
   ENotificationType,
-  ISetIsCreateTreeVisibleAction
+  ISetIsCreateTreeVisibleAction,
+  ISetTitleAction
 } from './types'
 
 export const generalActionCreator = {
@@ -31,5 +32,9 @@ export const generalActionCreator = {
   },
   hideNotification: () => {
     return generalActionCreator.setNotification({ type: ENotificationType.PRIMARY, message: '', visible: false })
-  }
+  },
+  setTitle: (title: string): ISetTitleAction => ({
+    type: EGeneralAction.SET_TITLE,
+    payload: title
+  })
 }

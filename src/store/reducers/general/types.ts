@@ -3,13 +3,15 @@ export interface IGeneralState {
   notification: INotificationPayload
   isAuthPopupVisible: boolean
   isCreateTreePopupVisible: boolean
+  title: string
 }
 
 export enum EGeneralAction {
   SET_IS_LOADING = 'SET_IS_LOADING',
   SET_NOTIFICATION = 'SET_NOTIFICATION',
   SET_IS_AUTH_VISIBLE = 'SET_IS_AUTH_VISIBLE',
-  SET_IS_CREATE_TREE_VISIBLE = 'SET_IS_CREATE_TREE_VISIBLE'
+  SET_IS_CREATE_TREE_VISIBLE = 'SET_IS_CREATE_TREE_VISIBLE',
+  SET_TITLE = 'SET_TITLE'
 }
 
 export interface ISetIsLoadingAction {
@@ -32,11 +34,17 @@ export interface ISetIsCreateTreeVisibleAction {
   payload: boolean
 }
 
+export interface ISetTitleAction {
+  type: EGeneralAction.SET_TITLE
+  payload: string
+}
+
 export type TGeneralAction =
   | ISetIsLoadingAction
   | ISetNotificationAction
   | ISetIsAuthVisibleAction
   | ISetIsCreateTreeVisibleAction
+  | ISetTitleAction
 
 export enum ENotificationType {
   ERROR = 'danger',
