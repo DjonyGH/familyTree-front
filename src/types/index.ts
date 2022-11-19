@@ -23,7 +23,7 @@ export interface ITreeItem {
 }
 
 export enum ERelativeType {
-  parents = 'Родителя',
+  parents = 'Родители',
   brothers = 'Братья и сестры',
   children = 'Дети',
   spouses = 'Супруги'
@@ -35,6 +35,8 @@ export interface IPerson {
   surname?: string
   patronymic?: string
   birthday?: string
+  deathday?: string
+  imgUrl?: string
   comment?: string
   userId?: string
   createdAt: string
