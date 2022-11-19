@@ -25,6 +25,11 @@
     margin: 20px 0;
     font-size: 1.75rem;
     font-weight: 700;
+    max-height: 84px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
   .birthday {
     font-size: 1.25rem;
